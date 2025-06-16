@@ -1,12 +1,16 @@
+from rating import Rating
+
 class FoodEstablishment:
     _name: str
     _category: str
     _status: bool
+    _rating: list
 
     def __init__(self, name, category):
         self._name = name  
         self._category = category
         self._status = False
+        self._rating = []
     
     @property
     def status(self):
