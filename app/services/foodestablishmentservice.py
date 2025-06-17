@@ -56,3 +56,11 @@ class FoodEstablishmentService:
         fes = self._food_establishments[name]
 
         return fes.rating
+    
+    def mean_rating(self, name):
+        if name not in self._food_establishments.keys():
+            return False
+        
+        fes = self._food_establishments[name]
+
+        return fes.mean_rating

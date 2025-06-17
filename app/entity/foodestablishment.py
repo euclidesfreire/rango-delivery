@@ -52,3 +52,11 @@ class FoodEstablishment:
             return False
 
         return self._rating[user_id]
+    
+    @property
+    def mean_rating(self):
+        sum_rating = sum(rating._value for rating in self._rating.values())
+
+        mean = round(sum_rating / len(self._rating))
+
+        return mean
