@@ -1,4 +1,4 @@
-from rating import Rating
+from entity.rating import Rating
 
 class FoodEstablishment:
     _name: str
@@ -10,7 +10,7 @@ class FoodEstablishment:
         self._name = name  
         self._category = category
         self._status = False
-        self._rating = []
+        self._rating = {}
     
     @property
     def status(self):
@@ -37,3 +37,18 @@ class FoodEstablishment:
     @property
     def category(self):
         return self._category
+    
+    @property
+    def rating(self):
+        return self._rating
+    
+    def add_rating(self, user_id, value):
+        rating_new = Rating(user_id, value)
+
+        self._rating[user_id] = rating_new
+
+    def search_rating(self, user_id):
+        if user_id not in self._rating.keys():
+            return False
+
+        return self._rating[user_id]

@@ -38,3 +38,21 @@ class FoodEstablishmentService:
         fes.toggle_status
 
         return fes.status
+
+    def add_rating(self, name, user_id, value):
+        if name not in self._food_establishments.keys():
+            return False
+        
+        fes = self._food_establishments[name]
+
+        fes.add_rating(user_id, value)
+
+        return True
+    
+    def rating_of(self, name):
+        if name not in self._food_establishments.keys():
+            return False
+        
+        fes = self._food_establishments[name]
+
+        return fes.rating
