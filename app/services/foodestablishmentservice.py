@@ -21,13 +21,13 @@ class FoodEstablishmentService:
     @property
     def read(self):
         #Columns name
-        columns_name = f'\n{'Name'.ljust(25)} | {'Category'.ljust(25)} | Status'
+        columns_name = f'\n{'Name'.ljust(25)} | {'Category'.ljust(25)} | {'Rating'.ljust(10)} | Status'
         print(columns_name)
         print('=' * len(columns_name))
 
         #Values
         for fe in self._food_establishments.values():
-            print(f'{fe.name.ljust(25)} | {fe.category.ljust(25)} | {fe.status}')
+            print(f'{fe.name.ljust(25)} | {fe.category.ljust(25)} | {str(fe.mean_rating).ljust(10)} | {fe.status}')
 
     def toggle_status(self, name):
         if name not in self._food_establishments.keys():
@@ -43,6 +43,9 @@ class FoodEstablishmentService:
         if name not in self._food_establishments.keys():
             return False
         
+        if not (0 < value < 5):
+            return False
+
         fes = self._food_establishments[name]
 
         fes.add_rating(user_id, value)
