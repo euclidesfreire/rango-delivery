@@ -1,10 +1,12 @@
 from entity.rating import Rating
+from entity.menu.menu import Menu
 
 class FoodEstablishment:
     _name: str
     _category: str
     _status: bool
     _rating: list
+    _menu: Menu
 
     def __init__(self, name, category):
         self._name = name  
@@ -55,8 +57,11 @@ class FoodEstablishment:
     
     @property
     def mean_rating(self):
+        if not self._rating:
+            return 'N/A'
+
         sum_rating = sum(rating._value for rating in self._rating.values())
 
-        mean = round(sum_rating / len(self._rating))
+        mean = round(sum_rating / len(self._rating),1)
 
         return mean
