@@ -1,14 +1,8 @@
-from entity.menu.menu import Menu
+from entity.menu.category import Category
 
 class MenuService:
 
-    _menu: Menu
+    _category: list
 
     def __init__(self):
-        self._menu = Menu()
-
-    def add_item(self, name, price, category):
-        self._menu.add_item(name, price, category)
-    
-    def read(self):
-        print(self._menu.items)
+        self._category = []
