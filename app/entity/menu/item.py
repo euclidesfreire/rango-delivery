@@ -1,3 +1,9 @@
 class Item:
-    name: str
-    price: float
+    _name: str
+    _price: float
+    _category: str
+
+    def __init__(self, name, price, category):
+        self._name = name
+        self._price = price
+        self._category = category
