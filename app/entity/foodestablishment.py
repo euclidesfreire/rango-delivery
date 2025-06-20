@@ -13,6 +13,7 @@ class FoodEstablishment:
         self._category = category
         self._status = False
         self._rating = {}
+        self.
     
     @property
     def status(self):
