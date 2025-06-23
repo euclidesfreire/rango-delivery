@@ -1,19 +1,18 @@
 from entity.rating import Rating
-from entity.menu.menu import Menu
 
 class FoodEstablishment:
+    _id: int
     _name: str
     _category: str
     _status: bool
     _rating: list
-    _menu: Menu
 
-    def __init__(self, name, category):
+    def __init__(self, id, name, category):
+        self._id = id  
         self._name = name  
         self._category = category
         self._status = False
         self._rating = {}
-        self.
     
     @property
     def status(self):
@@ -24,6 +23,9 @@ class FoodEstablishment:
         self._status = not self._status
 
         return self._status
+    @property
+    def id(self):
+        return self._id
 
     @property
     def name(self, name):

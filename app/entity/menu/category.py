@@ -1,18 +1,21 @@
-from entity.menu.product import Product
-
 class Category:
+    _id: int
     _name: str
-    _product: list
+    _food_establishment_id: int
 
-    def __init__(self, name):
+    def __init__(self, id, name, food_establishment_id):
         self._name = name
-        self._product = []
+        self._id = id
+        self._food_establishment_id = food_establishment_id
 
-    def add_product(self, name, price, description):
-        product_new = Product(name, price, description)
-
-        self._product.append(product_new)
+    @property
+    def id(self):
+        return self._id
     
     @property
-    def product(self):
-        return self._product
+    def name(self):
+        return self._name
+    
+    @property
+    def food_establishment_id(self):
+        return self._food_establishment_id
